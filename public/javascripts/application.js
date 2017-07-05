@@ -2,6 +2,35 @@ var seriesOptions = [],
     seriesCounter = 0,
     names = ['MSFT', 'AAPL', 'GOOG'];
 
+// split the data set into ohlc and volume
+var ohlc = [],
+    volume = [],
+    // dataLength = data.length,
+    // set the allowed units for data grouping
+    groupingUnits = [[
+        'week',                         // unit name
+        [1]                             // allowed multiples
+    ], [
+        'month',
+        [1, 2, 3, 4, 6]
+    ]],
+
+    i = highChartsData.length;
+
+while (i--) {
+  ohlc.push([
+      Date.parse(highChartsData[i][0]+' UTC'), // the date
+      highChartsData[i][1], // open
+      highChartsData[i][2], // high
+      highChartsData[i][3], // low
+      highChartsData[i][4] // close
+  ]);
+
+  volume.push([
+      highChartsData[i][0], // the date
+      highChartsData[i][5] // the volume
+  ]);
+}
 
 /**
  * Create the chart when all data is loaded
@@ -51,7 +80,7 @@ $.each(names, function (i, name) {
 
         seriesOptions[i] = {
             name: name,
-            data: data
+            data: ohlc
         };
 
         // As we're loading the data asynchronously, we don't know what order it will arrive. So

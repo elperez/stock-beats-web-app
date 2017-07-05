@@ -123,6 +123,9 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script>
+      var highChartsData = <%= @data.to_json %>;
+    </script>
     <script src="javascripts/application.js"></script>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
