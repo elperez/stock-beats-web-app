@@ -7,7 +7,7 @@ require 'simple_statistics'
 require 'HTTParty'
 
 get '/' do
-  erb :index
+  erb :index2
 end
 
 # http://localhost:4567/stock?stock=APPL
@@ -16,7 +16,7 @@ get '/stock' do
   # HTTParty.get('https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json')
   request_link ='https://www.quandl.com/api/v3/datasets/WIKI/ #{params[:stock]}.json'
   result = HTTParty.get('https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json')
-  @data = result[ "data" ]
+  @data = result["dataset"]["data"]
 
   # beat_result = MarketBeat.quotes(:AAPL, "20011-12-21", "2011-12-22")
   binding.pry
