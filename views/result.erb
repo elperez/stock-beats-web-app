@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="hd_wrapper">
+  </div>
+
+  <div class="nav_wrapper">
+  </div>
+  <div class="mn_wrapper">
+    <h1>Result</h1>
+    <div id="container" style="height: 400px; min-width: 310px"></div>  
+    <form action="/stock">
+      <label for="">stock name</label>
+      <input name="stock" type="text">
+      <button>get price</button>
+    </form>
+  </div>
+  <div class="bd_wrapper">
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="javascripts/application.js"></script>
+</html>
