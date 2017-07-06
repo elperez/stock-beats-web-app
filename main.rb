@@ -2,7 +2,7 @@ require 'sinatra'
 require 'rubygems'
 require 'market_beat'
 require 'simple_statistics'
-require 'HTTParty'
+require 'httparty'
 
 get '/' do
   erb :index2
