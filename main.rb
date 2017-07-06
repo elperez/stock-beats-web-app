@@ -1,6 +1,4 @@
-require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
 require 'rubygems'
 require 'market_beat'
 require 'simple_statistics'
@@ -19,7 +17,6 @@ get '/stock' do
   @data = result["dataset"]["data"]
 
   # beat_result = MarketBeat.quotes(:AAPL, "20011-12-21", "2011-12-22")
-  binding.pry
 
 # zESs-hBzxtczjAM_Jcds
   # output in html
