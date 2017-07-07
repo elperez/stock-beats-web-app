@@ -1,6 +1,6 @@
-require 'pry'
+# require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'rubygems'
 require 'market_beat'
 require 'simple_statistics'
@@ -24,7 +24,7 @@ get '/stock' do
   dataset = HTTParty.get(request_link)
 
   if dataset
-    binding.pry
+    # binding.pry
     draft = {:stockName => params[:stock].upcase,
       :data =>dataset["dataset"]["data"]
     }
@@ -34,7 +34,7 @@ get '/stock' do
   end
 
   @user.stock_favorites.each do |stock|
-    binding.pry
+    # binding.pry
     if (stock != params[:stock].upcase)
       request_link ="https://www.quandl.com/api/v3/datasets/WIKI/" + stock.upcase + ".json"
       dataset = HTTParty.get(request_link)
@@ -97,7 +97,7 @@ get '/user/:id' do
     request_link ="https://www.quandl.com/api/v3/datasets/WIKI/" + stock.upcase + ".json"
     dataset = HTTParty.get(request_link)
     if dataset
-      binding.pry
+      # binding.pry
       draft = {:stockName => stock.upcase,
         :data =>dataset["dataset"]["data"]
       }
@@ -114,7 +114,7 @@ end
 post '/user/new' do
 
   if user && user.authenticate(params[:password])
-    binding.pry
+    # binding.pry
     # create a session
     session[:user_id] = user.id
   end
