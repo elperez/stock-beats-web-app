@@ -2,36 +2,6 @@ var seriesOptions = [],
     seriesCounter = 0,
     names = ['MSFT', 'AAPL', 'GOOG'];
 
-// split the data set into ohlc and volume
-var ohlc = [],
-    volume = [],
-    // dataLength = data.length,
-    // set the allowed units for data grouping
-    groupingUnits = [[
-        'week',                         // unit name
-        [1]                             // allowed multiples
-    ], [
-        'month',
-        [1, 2, 3, 4, 6]
-    ]],
-
-    i = highChartsData.length;
-
-while (i--) {
-  ohlc.push([
-      Date.parse(highChartsData[i][0]+' UTC'), // the date
-      highChartsData[i][1], // open
-      highChartsData[i][2], // high
-      highChartsData[i][3], // low
-      highChartsData[i][4] // close
-  ]);
-
-  volume.push([
-      highChartsData[i][0], // the date
-      highChartsData[i][5] // the volume
-  ]);
-}
-
 /**
  * Create the chart when all data is loaded
  * @returns {undefined}
@@ -80,7 +50,7 @@ $.each(names, function (i, name) {
 
         seriesOptions[i] = {
             name: name,
-            data: ohlc
+            data: data
         };
 
         // As we're loading the data asynchronously, we don't know what order it will arrive. So
@@ -92,12 +62,12 @@ $.each(names, function (i, name) {
         }
     });
 });
-Highcharts.createElement('link', {
-   href: 'https://fonts.googleapis.com/css?family=Unica+One',
-   rel: 'stylesheet',
-   type: 'text/css'
-}, null, document.getElementsByTagName('head')[0]);
-
+// Highcharts.createElement('link', {
+//    href: 'https://fonts.googleapis.com/css?family=Unica+One',
+//    rel: 'stylesheet',
+//    type: 'text/css'
+// }, null, document.getElementsByTagName('head')[0]);
+//
 Highcharts.theme = {
    colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
       '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
